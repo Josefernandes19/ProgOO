@@ -1,0 +1,11 @@
+
+
+package Aula2;
+
+public class main {
+    public static void main(String[] args){
+       Hospede rand = new Hospede();
+       rand.setnome("Nomeeeee");
+       System.out.println(rand.getnome());
+    }
+}
