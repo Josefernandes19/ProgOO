@@ -13,23 +13,21 @@ public class testehospede {
 
 //Hospede
 
-
 package hotelaula;
 
 public class Hospede {
+    private static int id;
     private String nome;
     private String sobrenome;
     private Data dataEntrada;
     
-    public Hospede(){
-        
-    }
-    
     public Hospede(String nome){
+        ++this.id;
         this.nome = nome;
     }
     
     public Hospede(String nome, String sobrenome, int dia, int mes, int ano){
+        ++this.id;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.dataEntrada = new Data(dia, mes, ano);
@@ -69,7 +67,7 @@ public class Hospede {
             System.out.println("Sobrenome: "+this.sobrenome);
         }
         
-        System.out.println("Dia: "+this.dataEntrada.getdia());
+        System.out.println(this.dataEntrada.getdia()+"/"+this.dataEntrada.getmes()+"/"+this.dataEntrada.getano());
     }
 }
 
@@ -84,7 +82,7 @@ public class Data {
     
     public Data(int dia, int mes, int ano){
         this.dia = dia;
-        this.dia = mes;
+        this.mes = mes;
         this.ano = ano;
     }
     
@@ -101,14 +99,40 @@ public class Data {
     }
     
     public int getdia(){
+        if (this.dia > 31 || this.dia < 1){
+            this.dia = 0;
+        }
         return dia;
     }
     
     public int getmes(){
+        if (this.mes > 12 || this.mes < 1){
+            this.mes = 0;
+        }
         return mes;
     }
 
     public int getano(){
+        if (this.ano > 2016 || this.ano < 1916){
+            this.ano = 0;
+        }
         return ano;
+    }
+}
+
+//hotel.java
+
+package hotelaula;
+
+
+public class Hotel {
+    private String nome;
+    private Hospede[] arrayDeHospedes;
+    private int[] telefones;
+    
+    public Hotel(String nome, Hospede[] arrayDeHospedes, int[] telefones){
+        this.nome = nome;
+        this.arrayDeHospedes = arrayDeHospedes;
+        this.telefones = telefones;
     }
 }
