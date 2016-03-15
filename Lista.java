@@ -39,3 +39,60 @@ public class TesteCirculo {
         System.out.println("Perímetro do Circulo: " + circle.calcularPerimetro(raio));
     }
 }
+
+//Exercício 2
+//Moto.java
+
+package Exe2;
+
+public class Moto {
+    private String marca, modelo, cor;
+    private int marcha, menorMarcha, maiorMarcha;
+    private boolean ligada;
+    
+    public Moto (String marca, String modelo, String cor, int marcha, int menorMarcha, int maiorMarcha){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cor = cor;
+        this.marcha = marcha;
+        this.menorMarcha = menorMarcha;
+        this.maiorMarcha = maiorMarcha;
+        
+    }
+    public void marchaAcima(){
+        if (ligada){
+            if (marcha + 1 > maiorMarcha){
+                System.out.println("A moto já está na maior marcha possível.");
+            }
+            else{
+                marcha++;
+            }
+        }
+        else{
+            System.out.println("A moto está desligada!");
+        }
+    }
+    
+    public void marchaAbaixo(){
+        if (ligada){
+            if (marcha - 1 < menorMarcha){
+                System.out.println("A moto já está na menor marcha possível.");
+            }
+            else{
+                marcha--;
+            }
+        }
+        else{
+            System.out.println("A moto está desligada!");
+        }
+    }
+        
+    
+    public void ligar(){
+        ligada = true;
+    }
+    
+    public void desligar(){
+        ligada = false;
+    }
+}
